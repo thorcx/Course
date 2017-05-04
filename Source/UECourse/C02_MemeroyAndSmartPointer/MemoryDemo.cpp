@@ -12,7 +12,7 @@ UAction::UAction(const FObjectInitializer &ObjInit)
 void UAction::BeginDestroy()
 {
 	Super::BeginDestroy();
-	UE_LOG(LogTemp, Warning, TEXT("BeginDestroy!"));
+	UE_LOG(LogTemp, Warning, TEXT("UAction BeginDestroy!"));
 }
 
 //这里只在GC执行的时候才调用，ConditionalBeginDestroy后不会立刻执行，而是等到真正GC来的时候执行
