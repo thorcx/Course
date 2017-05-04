@@ -3,6 +3,30 @@
 
 #include "CoolObject.generated.h"
 
+//[ppt11]
+UENUM(BlueprintType)
+enum EStatus
+{
+	SAYHELLO		UMETA(DisplayName = "Say hello"),
+	CREATEUOBJECT   UMETA(DisplayName = "Create a UserProfile"),
+	PRINTUSTRUCT	UMETA(DisplayName = "Print UStruct members"),
+};
+
+//[ppt10]
+//使用USTRUCT
+USTRUCT(BlueprintType)
+struct FPlayerInfo
+{
+	GENERATED_USTRUCT_BODY()
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	int32 PlayerNumber;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	FColor PlayerColor;
+};
+
+
 UCLASS()
 class ACoolObject : public AActor
 {
@@ -20,17 +44,30 @@ public:
 	class UTexture	*Texture;
 
 	//注意这里的冲突以及编译器的报错
+	
+	//玩家编号
 	UPROPERTY(/*VisibleAnywhere,*/ EditInstanceOnly, BlueprintReadOnly, Category = Player)
 	int32	PlayerNumber;
 
+	//玩家血量
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Player)
 	float	Health;
 
-	UFUNCTION(BlueprintCallable, Category="Cool|CoolFunction")
-	void DoSomething();
-	
-	
+	//这里使用结构体表示玩家的信息集合
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Player)
+	FPlayerInfo	PlayerInfo;
+
+	//使用UENUM
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=PlayerSelection)
+	TEnumAsByte<EStatus>	CurrentStatus;
+
 	//[ppt-6]
+	//向屏幕输出信息
+	UFUNCTION(BlueprintCallable, Category="Cool|CoolFunction")
+	void SayHelloToUnreal();
+	
+	
+	//[ppt-7]
 	//展示如何实例化UUserProfile,这里指定一个UUserProfile的子类型，可以是蓝图继承下来的UserProfile子类型
 	UPROPERTY(EditAnywhere, Category=Profile)
 	TSubclassOf<class UUserProfile>	UserProfileClass;
@@ -38,7 +75,14 @@ public:
 	UPROPERTY()
 	class UUserProfile*	UserProfile;
 
+	//[ppt-8]
 	//生成UserProile实例
-	UFUNCTION(BlueprintCallable, Category = "Cool|CoolFunction")
-	void ShowUserProfile();
+	UFUNCTION(BlueprintCallable, Category = "UserProfile")
+	void CreateUserProfile();
+
+	//[ppt-9]
+	//销毁UserProfile
+	UFUNCTION(BlueprintCallable, Category = "UserProfile")
+	void DeleteUserProfile();
+
 };

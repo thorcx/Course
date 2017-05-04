@@ -5,15 +5,43 @@
 #include "UObject/NoExportTypes.h"
 #include "UserProfile.generated.h"
 
+//这里声明一个普通C++类
+//这里的类没有从UObject继承，引擎不会管理其生命周期
+class FDataStorage
+{
+public:
+	FDataStorage() 
+	{
+		RawData = new int32[3]{ 0,1,2 };
+	};
+	~FDataStorage()
+	{
+		if (RawData)
+		{
+			delete[] RawData;
+		}
+	};
+
+private:
+	int32* RawData;
+};
+
 /**
  * 
  */
+
+//[ppt1-3]
 UCLASS(Blueprintable)
 class UECOURSE_API UUserProfile : public UObject
 {
 	GENERATED_BODY()
 	
+	UUserProfile();
+	
 public:
+	//[ppt-9]
+	//UUserProfile的销毁函数，在这里执行释放内存的操作
+	virtual void BeginDestroy() override;
 
 	//定义一个护甲值
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=UserData)
@@ -24,5 +52,7 @@ public:
 	FColor PlayerColor;
 
 	
+private:
+	FDataStorage* DataStorage;
 	
 };
