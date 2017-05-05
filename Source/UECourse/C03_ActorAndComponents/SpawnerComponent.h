@@ -2,18 +2,18 @@
 
 #pragma once
 
-#include "Components/ActorComponent.h"
-#include "RandomMovementComponent.generated.h"
+#include "Components/SceneComponent.h"
+#include "SpawnerComponent.generated.h"
 
-//开始自定义的Component
+
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
-class UECOURSE_API URandomMovementComponent : public UActorComponent
+class UECOURSE_API USpawnerComponent : public USceneComponent
 {
 	GENERATED_BODY()
 
 public:	
 	// Sets default values for this component's properties
-	URandomMovementComponent();
+	USpawnerComponent();
 
 protected:
 	// Called when the game starts
@@ -23,8 +23,12 @@ public:
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
+	UFUNCTION(BlueprintCallable, Category=Spawner)
+	void SpawnStaticMeshActor();
+
 public:
-	UPROPERTY()
-	float MovementRadius;
+	UPROPERTY(EditAnywhere, Category=SpawnClass)
+	TSubclassOf<AStaticMeshActor> MeshActorToSpawn;
+	
 	
 };
