@@ -6,7 +6,7 @@ public class UECourse : ModuleRules
 {
 	public UECourse(TargetInfo Target)
 	{
-		PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore" });
+		PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore","ShaderCore", "RHI", "RenderCore" });
 
 		PrivateDependencyModuleNames.AddRange(new string[] {  });
 
