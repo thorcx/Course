@@ -8,6 +8,14 @@
 //[ppt7.3]创建一个无参数代理
 DECLARE_DELEGATE(FStandardDelegateSignature)
 
+//[ppt7.6]
+DECLARE_DELEGATE_OneParam(FParamDelegateSignature, FLinearColor)
+
+//[ppt7.6]
+DECLARE_MULTICAST_DELEGATE(FMulticastDelegateSignature)
+
+
+
 /**
  * C04: Delegate And Event
  * 第四章使用的GameMode
@@ -19,5 +27,11 @@ class  ADelegateGameMode : public AGameModeBase
 	
 public:
 	FStandardDelegateSignature	StandardDelegate;
+
+	FParamDelegateSignature     ParamDelegate;
+
+	FMulticastDelegateSignature MultiDelegate;
+
+	
 	
 };

@@ -5,6 +5,12 @@
 #include "GameFramework/Actor.h"
 #include "BoomTriggerVolume.generated.h"
 
+
+//[ppt7-7]
+//Event
+
+DECLARE_EVENT(ABoomTriggerVolume, FPlayerEnteredEvent)
+
 UCLASS()
 class UECOURSE_API ABoomTriggerVolume : public AActor
 {
@@ -24,7 +30,7 @@ public:
 	virtual void NotifyActorBeginOverlap(AActor* OtherActor) override;
 	virtual void NotifyActorEndOverlap(AActor* OtherActor) override;
 
-
+public:
 	//触发碰撞盒子
 	UPROPERTY()
 	UBoxComponent* TriggerBox;
@@ -32,4 +38,6 @@ public:
 	UPROPERTY()
 	UParticleSystem* BoomParticle;
 	
+	//当玩家走入后的EventDispatcher
+	FPlayerEnteredEvent OnPlayerEntered;
 };

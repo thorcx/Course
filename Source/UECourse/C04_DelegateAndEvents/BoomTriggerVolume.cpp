@@ -46,11 +46,15 @@ void ABoomTriggerVolume::NotifyActorBeginOverlap(AActor* OtherActor)
 	if (delegateGM)
 	{
 		delegateGM->StandardDelegate.ExecuteIfBound();
+		delegateGM->ParamDelegate.ExecuteIfBound(FLinearColor(1, 0, 0, 1));
+
+		delegateGM->MultiDelegate.Broadcast();
+		
 	}
 
 	GEngine->AddOnScreenDebugMessage(-1, 5, FColor::Red, FString::Printf(TEXT("%s Boom~~! "), *OtherActor->GetName()));
 
-
+	OnPlayerEntered.Broadcast();
 
 }
 
