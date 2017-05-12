@@ -12,7 +12,6 @@ class UTeamInterface : public UInterface
 class ITeamInterface
 {
 	GENERATED_IINTERFACE_BODY()
-	
 public:
 	virtual int32 GetTeamNum() const = 0;
 
@@ -22,3 +21,4 @@ public:
 	FString GetTeamName() const;
 };
 
+	

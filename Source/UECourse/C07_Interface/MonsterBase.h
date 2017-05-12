@@ -1,10 +1,11 @@
 #pragma once
 #include "GameFramework/Actor.h"
 #include "TeamInterface.h"
+#include "UndeadInterface.h"
 #include "MonsterBase.generated.h"
 
 UCLASS()
-class AMonsterBase : public AActor, public ITeamInterface
+class AMonsterBase : public AActor, public ITeamInterface, public IUndead
 {
 	GENERATED_BODY()
 	
