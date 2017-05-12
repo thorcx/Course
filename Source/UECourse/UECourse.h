@@ -4,4 +4,4 @@
 
 #include "Engine.h"
 
-
+#define COLLISION_BOOM ECC_GameTraceChannel1
