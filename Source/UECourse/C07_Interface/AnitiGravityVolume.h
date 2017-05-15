@@ -5,6 +5,7 @@
 #include "GameFramework/Actor.h"
 #include "AnitiGravityVolume.generated.h"
 
+//[ppt12-7 具一个例子]
 //一个反重力Volume
 //碰撞判断当一个实现了GravityInterface的Actor碰到它
 //调用GravityInterface的方法实现0重力

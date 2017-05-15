@@ -13,12 +13,19 @@ class ITeamInterface
 {
 	GENERATED_IINTERFACE_BODY()
 public:
+	//[ppt12-1]
 	virtual int32 GetTeamNum() const = 0;
 
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category=TeamInfo)
+	int32 GetTeamMemberCount() const;
+
+	//[ppt12-11]
 	//UFUNCTION定义的不能是virtual
 	//这里实现native是为了蓝图能覆写
-	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category=TeamInfo)
 	FString GetTeamName() const;
+
+	
 };
 
 	

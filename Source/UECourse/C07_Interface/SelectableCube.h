@@ -3,6 +3,7 @@
 #include "SelectableInterface.h"
 #include "SelectableCube.generated.h"
 
+//[ppt-12-9]
 UCLASS()
 class ASelectableCube : public APhysicsCube, public ISelectable
 {

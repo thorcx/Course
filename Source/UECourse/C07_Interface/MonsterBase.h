@@ -10,6 +10,7 @@ class AMonsterBase : public AActor, public ITeamInterface, public IUndead
 	GENERATED_BODY()
 	
 public:
+	//[ppt12-4]
 	virtual int32 GetTeamNum() const override;
 
 	//注意这里如果接口是UFUNCTION()

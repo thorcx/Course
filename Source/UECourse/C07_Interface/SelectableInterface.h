@@ -1,6 +1,8 @@
 #pragma once
 #include "SelectableInterface.generated.h"
 
+//[ppt-12-9]
+
 UINTERFACE()
 class USelectable : public UInterface
 {

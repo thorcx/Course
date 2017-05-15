@@ -7,13 +7,14 @@ bool IKillable::IsDead()
 	return false;
 }
 
+//对应蓝图level中的演示
 void IKillable::Die()
 {
 	GEngine->AddOnScreenDebugMessage(-1, 10, FColor::Purple, "ARRRRR Dead");
 	AActor* self = Cast<AActor>(this);
 	if (self)
 	{
-		self->Destroy();
+		//self->Destroy();
 	}
 }
 

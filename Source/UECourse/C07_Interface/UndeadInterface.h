@@ -1,7 +1,7 @@
 #pragma once
 #include "UndeadInterface.generated.h"
 
-//[C07 ppt7]
+//[ppt 12-8]
 //注意声明不能写在一个头文件，UBT报错，定义可以 
 //从接口继承接口 
 UINTERFACE()

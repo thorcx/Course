@@ -4,7 +4,7 @@
 #include "TeamInterface.h"
 void AInterfaceGameMode::BeginPlay()
 {
-	//[c_07 ppt5]
+	//[ppt 12-5]
 	//FTransform SpawnLocation;
 	//AHeroBase* hero = GetWorld()->SpawnActor<AHeroBase>(AHeroBase::StaticClass(), SpawnLocation);
 
@@ -13,7 +13,8 @@ void AInterfaceGameMode::BeginPlay()
 	//	GEngine->AddOnScreenDebugMessage(-1, 10.0f, FColor::Red, TEXT("Hero Implement TeamInterface"));
 	//}
 
-
+	
+	//[ppt 12-6]
 	for (TActorIterator<AActor> It(GetWorld(), AActor::StaticClass()); It; ++It)
 	{
 		AActor *actor = *It;
