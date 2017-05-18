@@ -1,11 +1,11 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+﻿// Fill out your copyright notice in the Description page of Project Settings.
 
 #pragma once
 
 #include "Engine/StaticMeshActor.h"
 #include "AnyThingC08.generated.h"
 
-//��9��������
+//与9共享例子
 /**
  * 
  */
@@ -27,12 +27,29 @@ class UECOURSE_API AAnyThingC08 : public AStaticMeshActor
 	AAnyThingC08();
 
 	//~Begin AActor Interface
-
+	
 	virtual void BeginPlay() override;
-
+	
 	//~End AActor Interface
+
+	
+#if WITH_EDITOR
+	virtual void PostEditChangeProperty(FPropertyChangedEvent& PropertyChangedEvent) override;
+
+#endif
+	
+protected:
+	//* 根据枚举值刷新根节点的Mesh */
+	virtual void RefreshShape();
+	
+	
+
 public:
 	
+	//是否让枚举值可以在Editor内随时刷新
+	UPROPERTY(EditAnywhere, Category=EditorControll)
+	bool bUseInEditorRefresh;
+
 	UPROPERTY(EditAnywhere,BlueprintReadWrite,Category=ShapeType)
 	TEnumAsByte<AnyThingShapeType>  ShapeType;
 

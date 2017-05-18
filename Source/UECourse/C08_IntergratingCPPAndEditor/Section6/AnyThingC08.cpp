@@ -34,6 +34,29 @@ AAnyThingC08::AAnyThingC08()
 void AAnyThingC08::BeginPlay()
 {
 	Super::BeginPlay();
+	if (!bUseInEditorRefresh)
+	{
+		RefreshShape();
+	}
+
+}
+
+void AAnyThingC08::PostEditChangeProperty(FPropertyChangedEvent& PropertyChangedEvent)
+{
+	if (PropertyChangedEvent.Property != nullptr)
+	{
+		const FName pName(PropertyChangedEvent.Property->GetFName());
+		if (pName == GET_MEMBER_NAME_CHECKED(AAnyThingC08, ShapeType) && bUseInEditorRefresh)
+		{
+			RefreshShape();
+		}
+	}
+	Super::PostEditChangeProperty(PropertyChangedEvent);
+
+}
+
+void AAnyThingC08::RefreshShape()
+{	
 	switch (ShapeType)
 	{
 	case Shape_Ball:
@@ -48,6 +71,5 @@ void AAnyThingC08::BeginPlay()
 	default:
 		break;
 	}
-
 }
 
