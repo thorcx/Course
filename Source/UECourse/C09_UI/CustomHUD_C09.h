@@ -3,13 +3,13 @@
 #pragma once
 
 #include "GameFramework/HUD.h"
-#include "CustomHUD.generated.h"
+#include "CustomHUD_C09.generated.h"
 
 /**
  * 
  */
 UCLASS()
-class UECOURSE_API ACustomHUD : public AHUD
+class UECOURSE_API ACustomHUD_C09 : public AHUD
 {
 	GENERATED_BODY()
 	

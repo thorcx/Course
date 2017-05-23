@@ -1,12 +1,12 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #include "UECourse.h"
-#include "CustomHUD.h"
+#include "CustomHUD_C09.h"
 
 
 
 
-void ACustomHUD::DrawHUD()
+void ACustomHUD_C09::DrawHUD()
 {
 	Super::DrawHUD();
 	

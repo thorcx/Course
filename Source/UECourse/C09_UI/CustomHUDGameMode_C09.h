@@ -3,18 +3,18 @@
 #pragma once
 
 #include "GameFramework/GameModeBase.h"
-#include "CustomHUDGameMode.generated.h"
+#include "CustomHUDGameMode_C09.generated.h"
 
 /**
  * 
  */
 UCLASS()
-class UECOURSE_API ACustomHUDGameMode : public AGameModeBase
+class UECOURSE_API ACustomHUDGameMode_C09 : public AGameModeBase
 {
 	GENERATED_BODY()
 	
 public:
-	ACustomHUDGameMode();
+	ACustomHUDGameMode_C09();
 	
 	
 };
