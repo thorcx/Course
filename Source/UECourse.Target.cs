@@ -21,5 +21,9 @@ public class UECourseTarget : TargetRules
 		)
 	{
 		OutExtraModuleNames.AddRange( new string[] { "UECourse" } );
+        if(UEBuildConfiguration.bBuildEditor)
+        {
+            OutExtraModuleNames.Add("UECourseEditor");
+        }
 	}
 }

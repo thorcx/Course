@@ -12,6 +12,15 @@
 				"CoreUObject",
 				"Engine"
 			]
+		},
+		{
+			"Name": "UECourseEditor",
+			"Type": "Editor",
+			"LoadingPhase": "PostEngineInit",
+			"AdditionalDependencies" : [
+				"Engine",
+				"CoreUObject"
+			]
 		}
 	]
 }

@@ -20,6 +20,6 @@ public class UECourseEditorTarget : TargetRules
 		ref List<string> OutExtraModuleNames
 		)
 	{
-		OutExtraModuleNames.AddRange( new string[] { "UECourse" } );
+		OutExtraModuleNames.AddRange( new string[] { "UECourseEditor" } );
 	}
 }

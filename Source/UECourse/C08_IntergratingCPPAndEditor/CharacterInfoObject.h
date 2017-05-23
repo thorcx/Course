@@ -26,4 +26,7 @@ public:
 	UPROPERTY()
 	int32	MaxItem;
 	
+	//后面蓝图自定义Pin的时候用到，代表选择的颜色
+	UPROPERTY()
+	FString ColorName;
 };
