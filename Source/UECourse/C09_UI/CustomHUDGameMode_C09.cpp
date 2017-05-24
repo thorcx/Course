@@ -3,10 +3,11 @@
 #include "UECourse.h"
 #include "CustomHUDGameMode_C09.h"
 #include "CustomHUD_C09.h"
-
+#include "CustomPlayerController_C09.h"
 
 
 ACustomHUDGameMode_C09::ACustomHUDGameMode_C09()
 {
-	HUDClass = ACustomHUD_C09::StaticClass();
+	HUDClass				= ACustomHUD_C09::StaticClass();
+	PlayerControllerClass = ACustomPlayerController_C09::StaticClass();
 }
