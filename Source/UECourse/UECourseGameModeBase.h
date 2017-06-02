@@ -13,6 +13,7 @@ class UECOURSE_API AUECourseGameModeBase : public AGameModeBase
 {
 	GENERATED_BODY()
 	
+protected:
 	
 	
 	
