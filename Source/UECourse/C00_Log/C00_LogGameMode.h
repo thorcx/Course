@@ -16,6 +16,8 @@ class UECOURSE_API AC00_LogGameMode : public AGameModeBase
 {
 	GENERATED_BODY()
 	
+public:
+	AC00_LogGameMode();
 protected:
 	//~ Begin AActor
 
@@ -35,4 +37,13 @@ protected:
 
 	//* 使用自定义Log类型输出 */
 	void OutputCustomLog();
+
+	//* 初始化MessageLog类型 */
+	void InitMessageLogType(FName loggerName);
+
+	//* 向MessageLog输出 */
+	void OutputMessageLog();
+
+
+
 };
