@@ -6,6 +6,9 @@
 
 #define LOCTEXT_NAMESPACE "DAWA_CoolGameLog"
 
+//自定义Log日志类型的定义
+//也可以直接在cpp文件内使用DEFINE_LOG_CATEGORY_STATIC(LogCoolGameMode,All,All);
+
 DEFINE_LOG_CATEGORY(LogCoolGameMode);
 
 #define FTEXT(x) LOCTEXT(x,x)
@@ -18,6 +21,7 @@ AC00_LogGameMode::AC00_LogGameMode()
 	InitMessageLogType(LoggerName);
 	
 	FMessageLog(LoggerName).Warning(FTEXT("A warning message from gamemode ctor"));
+	
 	
 }
 

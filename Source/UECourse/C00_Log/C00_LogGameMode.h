@@ -8,7 +8,9 @@
 /**
  * 
  */
-
+//自定义一个LogCoolGameMode的日志类型
+//这里是声明，定义在CPP中
+//后两个参数是ELogVerbosity枚举类型，代表输出的级别，一般都用ALL
 DECLARE_LOG_CATEGORY_EXTERN(LogCoolGameMode, Log, All);
 
 UCLASS()

@@ -14,7 +14,8 @@ AOrbitActor::AOrbitActor()
 	{
 		ChildMesh1->SetStaticMesh(ballAsset.Object);
 	}
-	ChildMesh1->AttachTo(GetRootComponent());
+	//ChildMesh1->AttachTo(GetRootComponent());
+	ChildMesh1->SetupAttachment(GetRootComponent());
 	ChildMesh1->SetRelativeLocation(FVector(-200.0f, 0.f, 0.f));
 }
 
