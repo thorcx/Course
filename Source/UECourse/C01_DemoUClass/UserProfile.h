@@ -1,12 +1,14 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+ï»¿// Fill out your copyright notice in the Description page of Project Settings.
 
 #pragma once
 
 #include "UObject/NoExportTypes.h"
+
+//â‘ æ³¨æ„è¿™é‡Œå‘å¯¼ç”Ÿæˆçš„generated.h,æ³¨æ„è¿™é‡Œæ˜¯å¿…é¡»çš„è€Œä¸”å¿…é¡»æ˜¯æœ€åä¸€ä¸ª#include(å°è¯•é¢ å€’ä½ç½®)
 #include "UserProfile.generated.h"
 
-//ÕâÀïÉùÃ÷Ò»¸öÆÕÍ¨C++Àà
-//ÕâÀïµÄÀàÃ»ÓĞ´ÓUObject¼Ì³Ğ£¬ÒıÇæ²»»á¹ÜÀíÆäÉúÃüÖÜÆÚ
+//è¿™é‡Œå£°æ˜ä¸€ä¸ªæ™®é€šC++ç±»
+//è¿™é‡Œçš„ç±»æ²¡æœ‰ä»UObjectç»§æ‰¿ï¼Œå¼•æ“ä¸ä¼šç®¡ç†å…¶ç”Ÿå‘½å‘¨æœŸ
 class FDataStorage
 {
 public:
@@ -31,6 +33,9 @@ private:
  */
 
 //[ppt1-3]
+/*â‘¡UCLASSå®å£°æ˜ï¼Œå®šä¹‰ä¸€ä¸ªUclass,æ³¨æ„è¿™é‡Œé¦–å…ˆçš„Blueprintableè¡¨æ˜äº†è¿™ä¸ªç±»å‹æš´éœ²ç»™è“å›¾ç³»ç»Ÿä½¿ç”¨
+ç»§æ‰¿è‡ªUObjectï¼Œç»§æ‰¿çš„ç±»å‹å¿…é¡»æ˜¯Uæ‰“å¤´*/
+
 UCLASS(Blueprintable)
 class UECOURSE_API UUserProfile : public UObject
 {
@@ -40,14 +45,18 @@ class UECOURSE_API UUserProfile : public UObject
 	
 public:
 	//[ppt-9]
-	//UUserProfileµÄÏú»Ùº¯Êı£¬ÔÚÕâÀïÖ´ĞĞÊÍ·ÅÄÚ´æµÄ²Ù×÷
+	//UUserProfileçš„é”€æ¯å‡½æ•°ï¼Œåœ¨è¿™é‡Œæ‰§è¡Œé‡Šæ”¾å†…å­˜çš„æ“ä½œ
 	virtual void BeginDestroy() override;
 
-	//¶¨ÒåÒ»¸ö»¤¼×Öµ
+	//å®šä¹‰ä¸€ä¸ªæŠ¤ç”²å€¼
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=UserData)
 	float Armor;
+
+	//å®šä¹‰ä¸€ä¸ªæœ€å¤§ç”Ÿå‘½,å¯ä»¥ä½¿ç”¨ä¸­æ–‡
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="è¡€é‡")
+	float HpMax;
 	
-	//¶¨ÒåÒ»¸öÍæ¼ÒµÄÑÕÉ«,¿É¼û²»¿É¸Ä,À¶Í¼ÄÚÎŞ·¨get,set,Ä¬ÈÏÕÛµş²»ÏÔÊ¾
+	//å®šä¹‰ä¸€ä¸ªç©å®¶çš„é¢œè‰²,å¯è§ä¸å¯æ”¹,è“å›¾å†…æ— æ³•get,set,é»˜è®¤æŠ˜å ä¸æ˜¾ç¤º
 	UPROPERTY(VisibleAnywhere,AdvancedDisplay, Category=UserData)
 	FColor PlayerColor;
 

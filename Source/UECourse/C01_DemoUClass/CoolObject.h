@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 
 #include "CoolObject.generated.h"
@@ -13,15 +13,17 @@ enum EStatus
 };
 
 //[ppt10]
-//Ê¹ÓÃUSTRUCT
+//â‘¦ä½¿ç”¨USTRUCT
 USTRUCT(BlueprintType)
 struct FPlayerInfo
 {
 	GENERATED_USTRUCT_BODY()
 	
+	//* ç©å®¶ç¼–å· */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	int32 PlayerNumber;
 
+	//* ç©å®¶é¢œè‰² */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	FColor PlayerColor;
 };
@@ -43,45 +45,49 @@ public:
 	UPROPERTY(EditAnywhere, Category = Player)
 	class UTexture	*Texture;
 
-	//×¢ÒâÕâÀïµÄ³åÍ»ÒÔ¼°±àÒëÆ÷µÄ±¨´í
+	//æ³¨æ„è¿™é‡Œçš„å†²çªä»¥åŠç¼–è¯‘å™¨çš„æŠ¥é”™
 	
-	//Íæ¼Ò±àºÅ
+	//ç©å®¶ç¼–å·
 	UPROPERTY(/*VisibleAnywhere,*/ EditInstanceOnly, BlueprintReadOnly, Category = Player)
 	int32	PlayerNumber;
 
-	//Íæ¼ÒÑªÁ¿
+	//ç©å®¶è¡€é‡
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Player)
 	float	Health;
 
-	//ÕâÀïÊ¹ÓÃ½á¹¹Ìå±íÊ¾Íæ¼ÒµÄĞÅÏ¢¼¯ºÏ
+	//è¿™é‡Œä½¿ç”¨ç»“æ„ä½“è¡¨ç¤ºç©å®¶çš„ä¿¡æ¯é›†åˆ
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Player)
 	FPlayerInfo	PlayerInfo;
 
-	//Ê¹ÓÃUENUM
+	//ä½¿ç”¨UENUM
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=PlayerSelection)
 	TEnumAsByte<EStatus>	CurrentStatus;
 
 	//[ppt-6]
-	//ÏòÆÁÄ»Êä³öĞÅÏ¢
+	//å‘å±å¹•è¾“å‡ºä¿¡æ¯
 	UFUNCTION(BlueprintCallable, Category="Cool|CoolFunction")
 	void SayHelloToUnreal();
 	
 	
 	//[ppt-7]
-	//Õ¹Ê¾ÈçºÎÊµÀı»¯UUserProfile,ÕâÀïÖ¸¶¨Ò»¸öUUserProfileµÄ×ÓÀàĞÍ£¬¿ÉÒÔÊÇÀ¶Í¼¼Ì³ĞÏÂÀ´µÄUserProfile×ÓÀàĞÍ
+	//å±•ç¤ºå¦‚ä½•å®ä¾‹åŒ–UUserProfile,è¿™é‡ŒæŒ‡å®šä¸€ä¸ªUUserProfileçš„å­ç±»å‹ï¼Œå¯ä»¥æ˜¯è“å›¾ç»§æ‰¿ä¸‹æ¥çš„UserProfileå­ç±»å‹
 	UPROPERTY(EditAnywhere, Category=Profile)
 	TSubclassOf<class UUserProfile>	UserProfileClass;
 	
 	UPROPERTY()
 	class UUserProfile*	UserProfile;
 
+
+
+	
+
 	//[ppt-8]
-	//Éú³ÉUserProileÊµÀı
+	//â‘¤ç”ŸæˆUserProileå®ä¾‹
 	UFUNCTION(BlueprintCallable, Category = "UserProfile")
 	void CreateUserProfile();
 
 	//[ppt-9]
-	//Ïú»ÙUserProfile
+	//â‘¥é”€æ¯UserProfile
 	UFUNCTION(BlueprintCallable, Category = "UserProfile")
 	void DeleteUserProfile();
 
