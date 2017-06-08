@@ -6,6 +6,7 @@ UAction::UAction(const FObjectInitializer &ObjInit)
 	Text(TEXT("Default Action")),
 	ShortcutKey(EKeys::A)
 {
+	UE_LOG(LogTemp, Warning, TEXT("UAction BeginConstruct!"));
 }
 
 //这里如果你调用了ConditionalBeginDestroy，立刻执行

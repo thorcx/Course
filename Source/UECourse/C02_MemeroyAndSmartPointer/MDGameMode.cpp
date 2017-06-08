@@ -12,8 +12,9 @@ AMDGameMode::AMDGameMode()
 void AMDGameMode::BeginPlay()
 {
 	Super::BeginPlay();
-	CreateActionInstance();
-	//SmartPointerTest();
+	//CreateActionInstance();
+	//DeleteActionInstance();
+	SmartPointerTest();
 	//WeakPointerTest();
 	//RawArrayPointerTest();
 }
@@ -43,7 +44,7 @@ void AMDGameMode::CreateActionInstance()
 
 	//指定生成蓝图类对象
 	MyAction = NewObject<UAction>(GetTransientPackage(), ActionClass);
-	DeleteActionInstance();
+	
 }
 
 void AMDGameMode::DeleteActionInstance()

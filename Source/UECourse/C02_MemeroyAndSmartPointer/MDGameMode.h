@@ -4,6 +4,7 @@
 #include "MDGameMode.generated.h"
 
 //自定义一个c++ Class
+//假设我们保存游戏的玩家数
 class FGameData
 {
 public:
@@ -29,7 +30,7 @@ private:
 
 
 
-//这里创建一个全局的GameMode在游戏内指定
+//②这里创建一个全局的GameMode在游戏内指定
 //并从这里生成一个UAction的对象来展示NewObject<>用法
 
 UCLASS()
@@ -56,7 +57,7 @@ public:
 	//一个普通指针，不能阻止被GC
 	UAction* RawActionPtr;
 
-	//一个指向自定义非UObject继承C++类的智能指针
+	//⑥一个指向自定义非UObject继承C++类的智能指针
 	TSharedPtr<FGameData> GameDataPtr;
 
 	//一个弱引用指针，不会增加引用计数
@@ -65,7 +66,7 @@ public:
 	//[ppt-8]非UObject类型不能用UPROPERTY标记
 	//UPROPERTY()
 	//FGameData *rawPtr;
-
+	
 	TArray<FGameData*>	GameDataArray;
 	
 	//这里保存的指针如果不用UPROPERTY()会被垃圾回收掉
@@ -74,23 +75,23 @@ public:
 
 public:
 	//[ppt-3]
-	//创建UAction实例
+	//③创建UAction实例
 	//NewObject的各种情况
 	void CreateActionInstance();
 
-	//[ppt4-5]
+	//④[ppt4-5]
 	//Destroy
 	void DeleteActionInstance();
 
 	//[ppt-6-8]
-	//智能指针TSharedPtr
+	//⑥智能指针TSharedPtr
 	void SmartPointerTest();
 
 	//[ppt-9]
-	//TWeakPtr
+	//⑦TWeakPtr
 	void WeakPointerTest();
 
 	//[ppt-10]
-	//垃圾回收 
+	//⑧垃圾回收 
 	void RawArrayPointerTest();
 };
