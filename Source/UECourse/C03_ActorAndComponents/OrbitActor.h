@@ -18,6 +18,7 @@ public:
 	
 public:
 
+	//[c3.17]建另一个Component体现子父关系
 	UPROPERTY()
 	UStaticMeshComponent *ChildMesh1;
 	

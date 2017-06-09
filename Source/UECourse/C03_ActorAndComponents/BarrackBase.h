@@ -5,6 +5,7 @@
 #include "GameFramework/Actor.h"
 #include "BarrackBase.generated.h"
 
+//[c3.40]
 //出生小怪的兵营
 
 UCLASS()

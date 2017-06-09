@@ -5,9 +5,8 @@
 #include "GameFramework/Character.h"
 #include "DwarfBaseCharacter.generated.h"
 
-
+//[c3.38]
 //一个基础的小怪
-
 UCLASS()
 class UECOURSE_API ADwarfBaseCharacter : public ACharacter
 {
@@ -21,7 +20,8 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-public:	
+public:
+	//[c3.39]Tick内移动
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 

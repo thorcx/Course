@@ -6,7 +6,7 @@
 #include "DynamicMeshBuilder.h"
 
 //Build.cs ×¢Òâ¼Ó"ShaderCore", "RHI", "RenderCore"
-
+//[c3.27]
 class FCustomVertexBuffer : public FVertexBuffer
 {
 public:
@@ -38,6 +38,7 @@ public:
 	}
 };
 
+//[c3.28]
 class FMySceneProxy : public FPrimitiveSceneProxy
 {
 public:
@@ -108,13 +109,14 @@ private:
 
 };
 
-
+//[c3.29]
 FPrimitiveSceneProxy* UDrawShapeComponent::CreateSceneProxy()
 {
 	FPrimitiveSceneProxy *proxy = new FMySceneProxy(this);
 	return proxy;
 }
 
+//[c3.30]
 UDrawShapeComponent::UDrawShapeComponent()
 {
 	static ConstructorHelpers::FObjectFinder<UMaterial> matAsset(TEXT("Material'/Engine/BasicShapes/BasicShapeMaterial.BasicShapeMaterial'"));

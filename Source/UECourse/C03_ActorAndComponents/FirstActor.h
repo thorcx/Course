@@ -31,6 +31,7 @@ public:
 	virtual void Tick(float DeltaTime) override;
 
 public:
+	//[c3.14]
 	//注意这里要加UPROPERTY防止被GC
 	UPROPERTY()
 	UStaticMeshComponent* Mesh;

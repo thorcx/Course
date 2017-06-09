@@ -34,12 +34,14 @@ void UOrbitMovementComponent::TickComponent(float DeltaTime, ELevelTick TickType
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 
+	//[c3.34]角度弧度转换
 	float currentValueInRadius = FMath::DegreesToRadians(CurrentValue);
 	
+	//[c3.35]
 	SetRelativeLocation(FVector(OrbitDistance * FMath::Cos(currentValueInRadius),
 								OrbitDistance * FMath::Sin(currentValueInRadius),
 								RelativeLocation.Z));
-	
+	//[c3.36]
 	if (RotateToFaceOutwards)
 	{
 		//根据相对位置，直接得到朝向
@@ -48,7 +50,7 @@ void UOrbitMovementComponent::TickComponent(float DeltaTime, ELevelTick TickType
 		FRotator LookAtRot = LookDir.Rotation();
 		SetRelativeRotation(LookAtRot);
 	}
-
+	//[c3.37]
 	CurrentValue = FMath::Fmod(CurrentValue + (RotationSpeed *DeltaTime), 360);
 
 }

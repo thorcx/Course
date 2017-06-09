@@ -66,6 +66,10 @@ void ABarrackBase::SpawnUnit()
 	FVector spawnLoc = SpawnPoint->GetComponentLocation();
 	FRotator spawnRot = SpawnPoint->GetComponentRotation();
 
-	GetWorld()->SpawnActor(ClassToSpawn, &spawnLoc, &spawnRot);
+	//注意这里如果你出生点有东西挡住就出不来了
+	FActorSpawnParameters params;
+	params.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
+	GetWorld()->SpawnActor(ClassToSpawn, &spawnLoc, &spawnRot, params);
+	//GetWorld()->SpawnActor(ClassToSpawn, &spawnLoc, &spawnRot);
 }
 

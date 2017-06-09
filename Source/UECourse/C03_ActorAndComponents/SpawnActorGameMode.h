@@ -11,16 +11,22 @@ class ASpawnActorGameMode : public AGameModeBase
 	GENERATED_BODY()
 
 public:
-	//[c3.8]覆盖Actor基类的虚函数BeginPlay(),Spawn的逻辑就写在这里，这样当引用了这个GameMode,BeginPlay()就会执行
+	
 	virtual void BeginPlay() override;
 
 	UPROPERTY()
 	class AFirstActor *MyActor;
 
 public:
-	UFUNCTION()
-	void DestroyActorFunction();
-
+	//[c3.8]SpawnActor模板函数的使用
 	UFUNCTION(BlueprintCallable, Category=ActorSpawn)
 	void SpawnActor(FTransform SpawnTransform);
+
+	//[c3.10]销毁Actor函数
+	UFUNCTION(BlueprintCallable, Category=ActorSpawn)
+	void DestroyActor();
+
+	//[c3.13]使用定时器销毁
+	UFUNCTION(BlueprintCallable, Category = ActorSpawn)
+	void DestroyActorUseTimer(float LiveTime=1.0f);
 };

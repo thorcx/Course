@@ -6,22 +6,27 @@ void ASpawnActorGameMode::BeginPlay()
 {
 	Super::BeginPlay();
 	
-	//[ppt-5]
-	//创建定时器
-	FTimerHandle timeHandler;
-	FTimerManager &timeManager = GetWorldTimerManager();
-	timeManager.SetTimer(timeHandler, this, &ASpawnActorGameMode::DestroyActorFunction, 10.0f);
+	
 
-	//[ppt-6]
+	//[ppt-5]
 	//MyActor->SetLifeSpan(5.0f);
 }
 
-void ASpawnActorGameMode::DestroyActorFunction()
+void ASpawnActorGameMode::DestroyActor()
 {
 	if (MyActor != nullptr)
 	{
 		MyActor->Destroy();
 	}
+}
+
+void ASpawnActorGameMode::DestroyActorUseTimer(float LiveTime)
+{
+	//[ppt-6]
+	//创建定时器
+	FTimerHandle timeHandler;
+	FTimerManager &timeManager = GetWorldTimerManager();
+	timeManager.SetTimer(timeHandler, this, &ASpawnActorGameMode::DestroyActor, LiveTime);
 }
 
 void ASpawnActorGameMode::SpawnActor(FTransform SpawnTransform)
