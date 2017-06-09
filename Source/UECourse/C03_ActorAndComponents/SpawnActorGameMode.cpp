@@ -5,11 +5,6 @@
 void ASpawnActorGameMode::BeginPlay()
 {
 	Super::BeginPlay();
-	GEngine->AddOnScreenDebugMessage(-1, 10.0f, FColor::Blue, TEXT("Actor Spawning!"));
-
-	
-	FTransform SpawnLocation;
-	MyActor = GetWorld()->SpawnActor<AFirstActor>(AFirstActor::StaticClass(), SpawnLocation);
 	
 	//[ppt-5]
 	//创建定时器
@@ -27,4 +22,10 @@ void ASpawnActorGameMode::DestroyActorFunction()
 	{
 		MyActor->Destroy();
 	}
+}
+
+void ASpawnActorGameMode::SpawnActor(FTransform SpawnTransform)
+{
+	GEngine->AddOnScreenDebugMessage(-1, 10.0f, FColor::Blue, TEXT("Actor Spawning!"));
+	MyActor = GetWorld()->SpawnActor<AFirstActor>(AFirstActor::StaticClass(), SpawnTransform);
 }
