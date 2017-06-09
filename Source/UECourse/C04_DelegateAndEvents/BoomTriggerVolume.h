@@ -11,6 +11,7 @@
 
 DECLARE_EVENT(ABoomTriggerVolume, FPlayerEnteredEvent)
 
+//[c4.1]
 UCLASS()
 class UECOURSE_API ABoomTriggerVolume : public AActor
 {
@@ -27,11 +28,13 @@ protected:
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
+	//[c4.3]
 	virtual void NotifyActorBeginOverlap(AActor* OtherActor) override;
 	virtual void NotifyActorEndOverlap(AActor* OtherActor) override;
 
 public:
 	//触发碰撞盒子
+	//[c4.2]
 	UPROPERTY()
 	UBoxComponent* TriggerBox;
 

@@ -24,7 +24,7 @@ void ADelegateListener::SetLightColorWithPayload(FLinearColor LightColor, bool i
 	PointLight->SetLightColor(LightColor);
 	PointLight->SetVisibility(isEnable);
 }
-
+//[c4.9]
 void ADelegateListener::BeginPlay()
 {
 	Super::BeginPlay();
@@ -38,15 +38,17 @@ void ADelegateListener::BeginPlay()
 		if (delegateGM)
 		{
 			delegateGM->StandardDelegate.BindUObject(this, &ADelegateListener::EnableLight);
+			//[c4.16]
 			//delegateGM->ParamDelegate.BindUObject(this, &ADelegateListener::SetLightColor);
 			
 			//绑定带payload
 			//这里的参数在绑定期就传值进去了
+			//[c4.19]
 			delegateGM->ParamDelegate.BindUObject(this, &ADelegateListener::SetLightColorWithPayload, IsEnable);
 		}
 	}
 }
-
+//[4.12]
 void ADelegateListener::EndPlay(EEndPlayReason::Type EndPlayReason)
 {
 	Super::EndPlay(EndPlayReason);

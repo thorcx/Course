@@ -4,7 +4,7 @@
 
 #include "GameFramework/Actor.h"
 #include "Explode.generated.h"
-
+//[c4.23]
 UCLASS()
 class UECOURSE_API AExplode : public AActor
 {
@@ -23,7 +23,7 @@ protected:
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
-
+	//[c4.25]
 	void KaBoom() const;
 
 	
@@ -34,7 +34,7 @@ public:
 public:
 
 	FDelegateHandle	EnterVolumnHandle;
-
+	//[4.24]
 	UPROPERTY()
 	UParticleSystemComponent* ParticleComp;
 	
