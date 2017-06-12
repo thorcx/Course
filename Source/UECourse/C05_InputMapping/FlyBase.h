@@ -4,7 +4,7 @@
 
 #include "GameFramework/Pawn.h"
 #include "FlyBase.generated.h"
-
+//[c5.10]
 UCLASS()
 class UECOURSE_API AFlyBase : public APawn
 {
@@ -28,6 +28,7 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
+	//[c5.12]
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 	
@@ -51,8 +52,8 @@ public:
 	UPROPERTY(EditAnywhere, Category=FireControl)
 	FVector	ProjectileSpawnLocation;
 
+	//[c5.11]
 	float CurrentForwardSpeed;
-	
 	float CurrentFlankSpeed;
 	float CurrentVerticalSpeed;
 

@@ -64,17 +64,22 @@ void AFlyBase::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 	PlayerInputComponent->BindAxis("Turn",			this,	&APawn::AddControllerYawInput);
 	PlayerInputComponent->BindAxis("LookUp",        this,   &APawn::AddControllerPitchInput);
 	
-	PlayerInputComponent->BindAction("Fire", IE_Pressed, this, &AFlyBase::Fire);
+	//PlayerInputComponent->BindAction("Fire", IE_Pressed, this, &AFlyBase::Fire);
 	
+	//[c5.13]
 	//首先直观的在这里声明
 	//然后放到GameCommon里去，因为其他的类有可能用到这个映射
 	//FInputAxisKeyMapping backKey("Back", EKeys::S, -1.0f);
 	//FInputAxisKeyMapping forwardKey("Back", EKeys::W, 1.0f);
+	//FInputActionKeyMapping fireKey("CodeFire", EKeys::LeftMouseButton, 0, 0, 0, 0);
 	GetWorld()->GetFirstPlayerController()->PlayerInput->AddAxisMapping(GameGlobal::backKey);
 	GetWorld()->GetFirstPlayerController()->PlayerInput->AddAxisMapping(GameGlobal::forwardKey);
-	
+	GetWorld()->GetFirstPlayerController()->PlayerInput->AddActionMapping(GameGlobal::fireKey);
+
 	//注意这里如果不小心填错了要绑定的动作名称，编译期间不会报错，执行期函数不会被回调执行，特别注意如果绑定完了不执行检查名称拼写
 	PlayerInputComponent->BindAxis("CodeMoveForward", this, &AFlyBase::MoveForward);
+
+	PlayerInputComponent->BindAction("CodeFire", IE_Pressed, this , &AFlyBase::Fire);
 	//Super::SetupPlayerInputComponent(PlayerInputComponent);
 
 }
@@ -82,14 +87,14 @@ void AFlyBase::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 void AFlyBase::MoveForward(float val)
 {
 	CurrentForwardSpeed += val;
-	CurrentForwardSpeed = FMath::Clamp(CurrentForwardSpeed, -500.f, 500.f);
+	CurrentForwardSpeed = FMath::Clamp(CurrentForwardSpeed, -150.f, 150.f);
 	//AddMovementInput(GetActorForwardVector(), val);
 }
 //作为作业
 void AFlyBase::MoveRight(float val)
 {
 	CurrentFlankSpeed += val;
-	CurrentFlankSpeed = FMath::Clamp(CurrentFlankSpeed, -200.f, 200.f);
+	CurrentFlankSpeed = FMath::Clamp(CurrentFlankSpeed, -50.f, 50.f);
 
 }
 //作业
