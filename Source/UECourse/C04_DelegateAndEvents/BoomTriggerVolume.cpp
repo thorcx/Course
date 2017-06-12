@@ -48,7 +48,7 @@ void ABoomTriggerVolume::NotifyActorBeginOverlap(AActor* OtherActor)
 		delegateGM->StandardDelegate.ExecuteIfBound();
 		//[c4.17][c4.20]
 		delegateGM->ParamDelegate.ExecuteIfBound(FLinearColor(0, 1, 0, 1));
-
+		//[c4.27]
 		delegateGM->MultiDelegate.Broadcast();
 		
 	}

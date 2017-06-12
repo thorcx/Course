@@ -8,7 +8,7 @@
 
 //[ppt7-7]
 //Event
-
+//[c4.28]
 DECLARE_EVENT(ABoomTriggerVolume, FPlayerEnteredEvent)
 
 //[c4.1]

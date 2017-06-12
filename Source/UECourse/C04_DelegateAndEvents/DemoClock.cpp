@@ -7,8 +7,8 @@
 // Sets default values
 ADemoClock::ADemoClock()
 {
-
-	RootSceneComponent = CreateDefaultSubobject<USceneComponent>(TEXT("SceneRoot"));
+	//[c4.45]
+	RootComponent = CreateDefaultSubobject<USceneComponent>(TEXT("SceneRoot"));
 	ClockFace	= CreateDefaultSubobject<UStaticMeshComponent>(TEXT("ClockFace"));
 	HourHand	= CreateDefaultSubobject<UStaticMeshComponent>(TEXT("HourHand"));
 	MinuteHand	= CreateDefaultSubobject<UStaticMeshComponent>(TEXT("MinuteHand"));
@@ -24,13 +24,8 @@ ADemoClock::ADemoClock()
 		MinuteHand->SetStaticMesh(meshAsset.Object);
 	}
 
-	
-	
 
-	RootComponent = RootSceneComponent;
-	//注意这里不要用AttachTo,已经被Deprecated了
-
-	ClockFace->AttachToComponent(RootSceneComponent, FAttachmentTransformRules::KeepRelativeTransform);
+	ClockFace->SetupAttachment(RootComponent);
 	ClockFace->SetRelativeTransform(FTransform(FRotator(0, 0, 90), FVector(0, 0, 0), FVector(2, 2, 1)));
 
 
@@ -38,8 +33,8 @@ ADemoClock::ADemoClock()
 	HourHand->AttachToComponent(HourHandle, FAttachmentTransformRules::KeepRelativeTransform);
 	MinuteHand->AttachToComponent(MinuteHandle, FAttachmentTransformRules::KeepRelativeTransform);
 
-	HourHandle->AttachToComponent(RootSceneComponent, FAttachmentTransformRules::KeepRelativeTransform);
-	MinuteHandle->AttachToComponent(RootSceneComponent, FAttachmentTransformRules::KeepRelativeTransform);
+	HourHandle->SetupAttachment(RootComponent);
+	MinuteHandle->SetupAttachment(RootComponent);
  	
 	HourHand->SetRelativeTransform(FTransform(FRotator(0, 0, 0), FVector(0, 55, 25), FVector(0.1, 0.1, 0.5)));
 	MinuteHand->SetRelativeTransform(FTransform(FRotator(0, 0, 0), FVector(0, 60, 50), FVector(0.1, 0.1, 1)));

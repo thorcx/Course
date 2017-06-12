@@ -4,10 +4,10 @@
 
 #include "GameFramework/Actor.h"
 #include "PickUp.generated.h"
-
+//[c4.49]
 DECLARE_DELEGATE(FPickedupEventSignature)
 
-
+//[c4.48]
 UCLASS()
 class UECOURSE_API APickUp : public AActor
 {
@@ -20,7 +20,7 @@ public:
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
-
+	//[c4.51]
 	virtual void NotifyActorBeginOverlap(AActor* OtherActor) override;
 
 
@@ -29,12 +29,13 @@ public:
 	virtual void Tick(float DeltaTime) override;
 
 public:
+	//[c4.51]
 	UPROPERTY()
 	UStaticMeshComponent* Mesh;
-
+	//[c4.52]
 	UPROPERTY()
 	URotatingMovementComponent* RotatingComponent;
-
+	//[c4.53]
 	FPickedupEventSignature	OnPickedUp;
 	
 };

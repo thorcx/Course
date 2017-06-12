@@ -9,10 +9,11 @@ AUpDownPlatform::AUpDownPlatform()
 {
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
-
+	RootComponent = CreateDefaultSubobject<USceneComponent>(TEXT("sceneroot"));
 	PlatformMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Mesh0"));
-	RootComponent = PlatformMesh;
-	ConstructorHelpers::FObjectFinder<UStaticMesh> meshAsset(TEXT("StaticMesh'/Game/StarterContent/Shapes/Shape_Cube.Shape_Cube'"));
+	PlatformMesh->SetupAttachment(RootComponent);
+	
+	ConstructorHelpers::FObjectFinder<UStaticMesh> meshAsset(TEXT("StaticMesh'/Game/Assets/Meshes/SM_Platform.SM_Platform'"));
 	if (meshAsset.Object)
 	{
 		PlatformMesh->SetStaticMesh(meshAsset.Object);
@@ -20,13 +21,16 @@ AUpDownPlatform::AUpDownPlatform()
 	}
 
 }
-
+//[c4.36]
 // Called when the game starts or when spawned
 void AUpDownPlatform::BeginPlay()
 {
 	Super::BeginPlay();
+	//记录下平台开始位置，为了来回移动
 	BeginLocation = GetActorLocation();
-
+	//TargetLocation = UKismetMathLibrary::TransformLocation(GetActorTransform(), TargetLocation);
+	//注意这里需要记录的目标位置是LocalPosition，我们要把他转成WorldPostion
+	TargetLocation = GetActorTransform().TransformPosition(TargetLocation);
 	//这里通过在场景中指定的方式获取拥有Event的对象
 	if (TriggerVolumn)
 	{

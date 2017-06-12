@@ -9,7 +9,7 @@
 //[ppt7-7]
 //如何实现一个Event
 //这里实现一个移动的平板
-
+//[c4.31]
 
 UCLASS()
 class UECOURSE_API AUpDownPlatform : public AActor
@@ -23,7 +23,7 @@ public:
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
-
+	//[c4.35]
 	void Move();
 
 
@@ -36,7 +36,7 @@ public:
 
 
 public:
-
+	//[c4.32]
 	UPROPERTY(EditAnywhere)
 	UStaticMeshComponent* PlatformMesh;
 
@@ -46,13 +46,13 @@ private:
 
 	
 
-
+	//[c4.33]
 	UPROPERTY(EditAnywhere, Category = Destination, meta = (AllowPrivateAccess = true))
 	class ABoomTriggerVolume* TriggerVolumn;
 
 	
-
-	UPROPERTY(EditAnywhere, Category = Destination, meta = (AllowPrivateAccess = true))
+	//[c4.34]
+	UPROPERTY(EditAnywhere, Category = Destination, meta = (AllowPrivateAccess = true, MakeEditWidget = true))
 	FVector TargetLocation;
 
 	FVector BeginLocation;

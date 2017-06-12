@@ -3,7 +3,7 @@
 #include "UECourse.h"
 #include "PickUp.h"
 
-
+//[c4.54]
 // Sets default values
 APickUp::APickUp()
 {
@@ -37,7 +37,7 @@ void APickUp::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 
 }
-
+//[c4.55]
 void APickUp::NotifyActorBeginOverlap(AActor* OtherActor)
 {
 	OnPickedUp.ExecuteIfBound();

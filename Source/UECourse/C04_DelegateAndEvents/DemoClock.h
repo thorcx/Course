@@ -4,7 +4,7 @@
 
 #include "GameFramework/Actor.h"
 #include "DemoClock.generated.h"
-
+//[c4.42]
 UCLASS()
 class UECOURSE_API ADemoClock : public AActor
 {
@@ -27,8 +27,7 @@ public:
 
 public:
 	
-	UPROPERTY()
-	USceneComponent*	RootSceneComponent;
+	
 
 	UPROPERTY()
 	UStaticMeshComponent*	ClockFace;

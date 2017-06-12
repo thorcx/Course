@@ -8,6 +8,7 @@ ATimeOfDayHandler::ATimeOfDayHandler()
 	,ElapsedSeconds(0.0f)
 {
 	PrimaryActorTick.bCanEverTick = true;
+	RootComponent = CreateDefaultSubobject<UBillboardComponent>(TEXT("Billboard"));
 }
 
 

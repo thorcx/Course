@@ -4,7 +4,7 @@
 
 #include "GameFramework/Actor.h"
 #include "PickupSpawner.generated.h"
-
+//[c4.56]
 UCLASS()
 class UECOURSE_API APickupSpawner : public AActor
 {
@@ -21,17 +21,21 @@ protected:
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
-
+	//[c4.57]
 	UFUNCTION()
 	void PickupCollected();
-
+	//[c4.58]
 	UFUNCTION()
 	void SpawnPickup();
 
 public:
+	//[c4.59]
 	UPROPERTY()
 	USceneComponent* SpawnLocation;
 	
+	UPROPERTY()
+	class UBillboardComponent* Indicator;
+
 	UPROPERTY()
 	class APickUp* CurrentPickup;
 

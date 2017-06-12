@@ -3,9 +3,10 @@
 #include "TimeOfDayHandler.generated.h"
 
 //[ppt7-8]
-
+//[c4.38]
 DECLARE_MULTICAST_DELEGATE_TwoParams(FOnTimeChangedSignature, int32, int32)
 
+//[c4.37]
 UCLASS()
 class ATimeOfDayHandler : public AActor
 {
@@ -19,6 +20,7 @@ public:
 
 public:
 
+	//[c4.39]
 	//系数
 	UPROPERTY()
 	int32 TimeScale;
@@ -34,6 +36,6 @@ public:
 	//经过时间 
 	UPROPERTY()
 	float ElapsedSeconds;
-
+	//[c4.40]
 	FOnTimeChangedSignature OnTimeChanged;
 };

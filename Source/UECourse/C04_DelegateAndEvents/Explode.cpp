@@ -50,6 +50,7 @@ void AExplode::BeginPlay()
 			ADelegateGameMode *delegateGM = Cast<ADelegateGameMode>(gm);
 			if (delegateGM)
 			{
+				//[c4.26]
 				EnterVolumnHandle = delegateGM->MultiDelegate.AddUObject(this, &AExplode::KaBoom);
 			}
 		}

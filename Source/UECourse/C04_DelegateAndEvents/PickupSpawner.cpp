@@ -4,10 +4,15 @@
 #include "PickupSpawner.h"
 #include "PickUp.h"
 
+//[c4.60]
 // Sets default values
 APickupSpawner::APickupSpawner()
 {
 	SpawnLocation = CreateDefaultSubobject<USceneComponent>(TEXT("SpawnLocation"));
+	RootComponent = SpawnLocation;
+
+	Indicator = CreateDefaultSubobject<UBillboardComponent>(TEXT("Indicator"));
+	Indicator->SetupAttachment(RootComponent);
 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
@@ -21,7 +26,7 @@ void APickupSpawner::BeginPlay()
 	SpawnPickup();
 	
 }
-
+//[c4.61]
 void APickupSpawner::PickupCollected()
 {
 	GetWorld()->GetTimerManager().SetTimer(MyTimer, this, &APickupSpawner::SpawnPickup, 10, false);
