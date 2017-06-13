@@ -8,6 +8,7 @@
 /**
  * 
  */
+//[c6-1]
 UCLASS()
 class UECOURSE_API ASecurityCameraC08 : public AStaticMeshActor
 {
