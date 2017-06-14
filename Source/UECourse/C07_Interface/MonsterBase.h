@@ -4,6 +4,8 @@
 #include "UndeadInterface.h"
 #include "MonsterBase.generated.h"
 
+//[c7-07]
+//[c7-26]
 UCLASS()
 class AMonsterBase : public AActor, public ITeamInterface, public IUndead
 {
@@ -11,6 +13,7 @@ class AMonsterBase : public AActor, public ITeamInterface, public IUndead
 	
 public:
 	//[ppt12-4]
+	//[c7-08]
 	virtual int32 GetTeamNum() const override;
 
 	//注意这里如果接口是UFUNCTION()

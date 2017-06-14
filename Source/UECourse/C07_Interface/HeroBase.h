@@ -5,7 +5,7 @@
 #include "HeroBase.generated.h"
 
 
-
+//[c7-05]
 UCLASS()
 class AHeroBase : public AActor, public ITeamInterface, public IKillable
 {
@@ -15,6 +15,7 @@ public:
 	AHeroBase();
 public:
 	//[ppt12-4]
+	//[c7-06]
 	int32 GetTeamNum() const override;
 
 	FString GetTeamName_Implementation() const override;

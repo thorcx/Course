@@ -1,6 +1,7 @@
 #pragma once
 #include "GravityInterface.generated.h"
 
+//[c7-16]
 UINTERFACE()
 class UGravityInterface : public UInterface
 {

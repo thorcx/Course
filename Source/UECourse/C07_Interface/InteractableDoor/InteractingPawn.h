@@ -8,6 +8,7 @@
 /**
  * 
  */
+//[c7-40]
 UCLASS()
 class UECOURSE_API AInteractingPawn : public ADefaultPawn
 {

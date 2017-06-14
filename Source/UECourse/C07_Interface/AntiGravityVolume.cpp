@@ -1,11 +1,11 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #include "UECourse.h"
-#include "AnitiGravityVolume.h"
+#include "AntiGravityVolume.h"
 #include "GravityInterface.h"
 
 // Sets default values
-AAnitiGravityVolume::AAnitiGravityVolume()
+AAntiGravityVolume::AAntiGravityVolume()
 {
 	CollisionComponent = CreateDefaultSubobject<UBoxComponent>(TEXT("CollisionBox"));
 	CollisionComponent->SetBoxExtent(FVector(200, 200, 400));
@@ -16,20 +16,21 @@ AAnitiGravityVolume::AAnitiGravityVolume()
 }
 
 // Called when the game starts or when spawned
-void AAnitiGravityVolume::BeginPlay()
+void AAntiGravityVolume::BeginPlay()
 {
 	Super::BeginPlay();
 	
 }
 
 // Called every frame
-void AAnitiGravityVolume::Tick(float DeltaTime)
+void AAntiGravityVolume::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
 }
 
-void AAnitiGravityVolume::NotifyActorBeginOverlap(AActor* OtherActor)
+
+void AAntiGravityVolume::NotifyActorBeginOverlap(AActor* OtherActor)
 {
 	IGravityInterface *gI = Cast<IGravityInterface>(OtherActor);
 	if (gI)
@@ -38,7 +39,7 @@ void AAnitiGravityVolume::NotifyActorBeginOverlap(AActor* OtherActor)
 	}
 }
 
-void AAnitiGravityVolume::NotifyActorEndOverlap(AActor* OtherActor)
+void AAntiGravityVolume::NotifyActorEndOverlap(AActor* OtherActor)
 {
 	IGravityInterface *gI = Cast<IGravityInterface>(OtherActor);
 	if (gI)

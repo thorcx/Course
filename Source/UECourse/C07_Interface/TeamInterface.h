@@ -1,7 +1,9 @@
 ﻿#pragma once
 
 #include "TeamInterface.generated.h"
+//[c7-01]
 
+//[c7-02]
 UINTERFACE()
 class UTeamInterface : public UInterface
 {
@@ -9,13 +11,16 @@ class UTeamInterface : public UInterface
 };
 
 //实际的定义写在这里
+//[c7-03]
 class ITeamInterface
 {
 	GENERATED_IINTERFACE_BODY()
 public:
 	//[ppt12-1]
+	//[c7-04]
 	virtual int32 GetTeamNum() const = 0;
 
+	//[c7-30]
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category=TeamInfo)
 	int32 GetTeamMemberCount() const;
 

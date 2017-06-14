@@ -4,6 +4,7 @@
 #include "GravityInterface.h"
 #include "PhysicsCube.generated.h"
 
+//[c7-19]
 UCLASS()
 class APhysicsCube : public AActor, public IGravityInterface
 {

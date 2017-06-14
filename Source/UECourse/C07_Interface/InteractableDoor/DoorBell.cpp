@@ -29,7 +29,7 @@ bool ADoorBell::CanInteract_Implementation()
 void ADoorBell::PerformInteract_Implementation()
 {
 	HasBeenPushed = true;
-	//这里演示没指定后，程序不判断出现的崩溃
+	//这里演示Actor没指定后，程序不判断出现的崩溃
 	if (DoorToOpen->GetClass()->ImplementsInterface(UOpenableInterface::StaticClass()))
 	{
 		IOpenableInterface::Execute_Open(DoorToOpen);

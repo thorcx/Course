@@ -1,6 +1,6 @@
 #pragma once
 #include "OpenableInterface.generated.h"
-
+//[c7-]
 UINTERFACE()
 class UOpenableInterface : public UInterface
 {

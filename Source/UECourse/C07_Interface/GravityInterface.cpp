@@ -1,7 +1,7 @@
 #include "UECourse.h"
 #include "GravityInterface.h"
 
-
+//[c7-18]
 void IGravityInterface::EnableGravity()
 {
 	AActor* asActor = Cast<AActor>(this);

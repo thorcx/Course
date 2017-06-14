@@ -44,4 +44,5 @@ void IUndead::Banish()
 	{
 		self->Destroy();
 	}
+	GEngine->AddOnScreenDebugMessage(-1, 10, FColor::Black, TEXT("You purged a undead"));
 }

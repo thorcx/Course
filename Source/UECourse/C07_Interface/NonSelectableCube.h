@@ -2,6 +2,7 @@
 #include "SelectableCube.h"
 #include "NonSelectableCube.generated.h"
 
+//[c7-29]
 UCLASS()
 class ANonSelectableCube : public ASelectableCube
 {
