@@ -10,13 +10,15 @@
 #include "PropertyEditorModule.h"
 #include "CustomDetails/CustomAssetDetailsCustomization.h"
 
-
+//[c8-35]
 IMPLEMENT_GAME_MODULE(FUECourseEditorModule, UECourseEditor)
 
+//[c8-43]
 void FUECourseEditorModule::StartupModule()
 {
+	//[c8-44]
 	FCoolCommands::Register();
-
+	//[c8-45]
 	TSharedPtr<FUICommandList> commandList = MakeShareable(new FUICommandList());
 	
 	commandList->MapAction(FCoolCommands::Get().CoolCommandButton, FExecuteAction::CreateRaw(this,
@@ -24,15 +26,17 @@ void FUECourseEditorModule::StartupModule()
 		, FCanExecuteAction());
 
 	ToolbarExtender = MakeShareable(new FExtender());
-	
+	//这里的添加第一个参数是位置锚点，第二个是在锚点前或锚点后
 	ToolbarExtension = ToolbarExtender->AddToolBarExtension("Compile", EExtensionHook::Before, commandList,
 		FToolBarExtensionDelegate::CreateRaw(this, &FUECourseEditorModule::AddToolbarExtension));
 
+	//[c8-54]
 	MenuEntryExtender = MakeShareable(new FExtender());
 
 	MenuExtension = MenuEntryExtender->AddMenuExtension("LevelEditor", EExtensionHook::Before, commandList,
 		FMenuExtensionDelegate::CreateRaw(this, &FUECourseEditorModule::AddMenuExtension));
 
+	//[c8-47]
 	FLevelEditorModule& levelEditorModule = FModuleManager::LoadModuleChecked<FLevelEditorModule>("LevelEditor");
 	levelEditorModule.GetToolBarExtensibilityManager()->AddExtender(ToolbarExtender);
 	levelEditorModule.GetMenuExtensibilityManager()->AddExtender(MenuEntryExtender);
@@ -52,14 +56,17 @@ void FUECourseEditorModule::StartupModule()
 
 	RegisterCustomDetail();
 }
-
+//[c8-48]
 void FUECourseEditorModule::ShutdownModule()
 {
+	//[c8-49]
 	ToolbarExtender->RemoveExtension(ToolbarExtension.ToSharedRef());
-	MenuEntryExtender->RemoveExtension(MenuExtension.ToSharedRef());
 	ToolbarExtension.Reset();
-	MenuExtension.Reset();
 	ToolbarExtender.Reset();
+	
+	//[c8-55]
+	MenuEntryExtender->RemoveExtension(MenuExtension.ToSharedRef());
+	MenuExtension.Reset();
 	MenuEntryExtender.Reset();
 
 	IAssetTools& assetTools = FModuleManager::LoadModuleChecked<FAssetToolsModule>("AssetTools").Get();
@@ -67,7 +74,7 @@ void FUECourseEditorModule::ShutdownModule()
 	{
 		assetTools.UnregisterAssetTypeActions(action.ToSharedRef());
 	}
-	
+	//[c8-68]
 	if (DisplayTestCommand)
 	{
 		IConsoleManager::Get().UnregisterConsoleObject(DisplayTestCommand);
@@ -79,6 +86,7 @@ void FUECourseEditorModule::ShutdownModule()
 	UnRegisterCustomDetail();
 }
 
+//[c8.56]
 void FUECourseEditorModule::CoolCommandButton_Clicked()
 {
 	TSharedRef<SWindow> window = SNew(SWindow)
@@ -127,6 +135,8 @@ void FUECourseEditorModule::AddMenuExtension(FMenuBuilder& builder)
 
 void FUECourseEditorModule::RegisterCustomConsoleCommand()
 {
+	//[c8-68]
+	
 	//注意这里创建的CreateRaw代理使用PayLoad将参数传给回调函数
 	DisplayTestCommand = IConsoleManager::Get().RegisterConsoleCommand(TEXT("DisplayTestCommandWindow"),
 		TEXT("test"),

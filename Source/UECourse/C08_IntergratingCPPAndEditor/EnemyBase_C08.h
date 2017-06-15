@@ -8,6 +8,7 @@
 
 //注意这里从Actor继承默认是Blueprintable的，也可以显式指定
 //UObject默认是NotBlueprintable
+//[c8-03]
 UCLASS(Blueprintable)
 class UECOURSE_API AEnemyBase_C08 : public AActor
 {
@@ -25,6 +26,15 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
-	
+	UFUNCTION(Exec)
+	void DoSomeTestAnimal(FVector pos);
+
+	//* 敌人携带的武器名称 */
+	UPROPERTY(BlueprintReadOnly)
+	FString WeaponName;
+
+	//* 敌人最大血量 */
+	UPROPERTY(BlueprintReadWrite)
+	int32 MaximumHealth;
 	
 };

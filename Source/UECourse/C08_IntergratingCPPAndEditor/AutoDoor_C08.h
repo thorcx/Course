@@ -10,6 +10,8 @@ class UECOURSE_API AAutoDoor_C08 : public AActor
 {
 	GENERATED_BODY()
 	
+	//* TimeLine组件定义 */
+	UPROPERTY()
 	class UTimelineComponent *DoorTimeLine;
 	
 public:	
@@ -24,6 +26,7 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
+	//[c8-08]
 	//~Begin Door Timeline 回调函数开始
 	UFUNCTION()
 	void TML_DoorMovementReturn(float value);
@@ -35,6 +38,7 @@ public:
 	void TML_Finished();
 	//~End Door Timeline 回调函数结束
 
+	//[c8-10]
 	//** 门打开函数，可被蓝图内调用*/
 	UFUNCTION(BlueprintCallable, Category="Door|Actions")
 	void OpenDoor();
@@ -46,6 +50,7 @@ public:
 
 
 public:
+	//[c8-09]
 	//**Timeline代理类对象，在TimelineComponent.h中定义的代理类型，这里要与上面写的回调函数绑定,来获取update和timelinefinish事件 */
 	FOnTimelineFloat OnInterpDoorMovement;
 	
@@ -54,12 +59,15 @@ public:
 	FOnTimelineEvent OnTimelineFinished;
 
 public:
+	//[c8-07]
+	//* Timeline采用的曲线 */
 	UPROPERTY(EditAnywhere, Category=DoorTimeLine)
 	class UCurveFloat*	DoorMovmentCurve;
 
 	UPROPERTY(EditAnywhere, Category = DoorTimeLine)
 	class UCurveFloat*	DoorLockRotationCurve;
 
+	//[c8-06]
 	//左边门模型
 	UPROPERTY(VisibleDefaultsOnly, Category=DoorMesh)
 	UStaticMeshComponent *LeftDoorMesh;

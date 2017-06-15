@@ -13,7 +13,7 @@ void FCoolCustomAssetDetailsCustomization::CustomizeDetails(IDetailLayoutBuilder
 {
 
 	const TArray<TWeakObjectPtr<UObject>>& SelectedObjects = DetailBuilder.GetDetailsView().GetSelectedObjects();
-
+	//[c8-83]这里获得操作的对象
 	for (int32 i = 0; i<SelectedObjects.Num(); ++i)
 	{
 		const TWeakObjectPtr<UObject>& currentObject = SelectedObjects[i];
@@ -23,7 +23,7 @@ void FCoolCustomAssetDetailsCustomization::CustomizeDetails(IDetailLayoutBuilder
 			break;
 		}
 	}
-
+	//[c8-84]这里添加自定义的Slate控件
 	auto &categoryBuilder = DetailBuilder.EditCategory("CustomAsset", FText::GetEmpty(), ECategoryPriority::Important);
 	categoryBuilder.AddCustomRow(FText::GetEmpty())
 		[
@@ -36,7 +36,7 @@ void FCoolCustomAssetDetailsCustomization::CustomizeDetails(IDetailLayoutBuilder
 			]
 		];
 }
-
+//[c8-85]
 void FCoolCustomAssetDetailsCustomization::ColorPicked(FLinearColor SelectedColor)
 {
 	if (MyAsset.IsValid())

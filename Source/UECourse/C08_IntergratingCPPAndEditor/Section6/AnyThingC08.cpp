@@ -40,7 +40,7 @@ void AAnyThingC08::BeginPlay()
 	}
 
 }
-
+//[c8-31]
 void AAnyThingC08::PostEditChangeProperty(FPropertyChangedEvent& PropertyChangedEvent)
 {
 	if (PropertyChangedEvent.Property != nullptr)

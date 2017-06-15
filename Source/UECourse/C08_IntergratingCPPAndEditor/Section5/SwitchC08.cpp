@@ -53,7 +53,7 @@ void ASwitchC08::PostInitializeComponents()
 	//也可以用这种形式
 	SwitchDMI = GetStaticMeshComponent()->CreateAndSetMaterialInstanceDynamic(2);
 }
-
+//[c8-23]
 void ASwitchC08::OnSwitchTriggerOverlapped_Implementation(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult & SweepResult)
 {
 	OnSwitchTouched.Broadcast(this);

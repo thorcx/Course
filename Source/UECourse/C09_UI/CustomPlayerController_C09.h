@@ -8,6 +8,7 @@
 /**
  * 
  */
+//[c09-05]
 UCLASS()
 class UECOURSE_API ACustomPlayerController_C09 : public APlayerController
 {
@@ -21,6 +22,7 @@ public:
 	
 	//~ End AActor interface
 
+	//[c09-06]
 	//* 添加Slate到屏幕 */
 	UFUNCTION(BlueprintCallable, Category=UIControl)
 	void AddSlateButton();
@@ -29,6 +31,7 @@ public:
 	UFUNCTION(BlueprintCallable, Category = UIControl)
 	void RemoveSlateButton();
 
+	//[c09-09]
 	//* 添加并显示Slate到屏幕 */
 	UFUNCTION(BlueprintCallable, Category = UIControl)
 	void AddAndShowSlateButton();
@@ -41,10 +44,12 @@ public:
 	UFUNCTION(BlueprintCallable, Category = UIControl)
 	void AddAndShowClickableButton();
 
+	//[c09-10]
 	//* 隐藏ClickableButton */
 	UFUNCTION(BlueprintCallable, Category = UIControl)
 	void HideClickableButton();
 
+	//[c09-11]
 	//* 添加并显示数据绑定Button到屏幕 */
 	UFUNCTION(BlueprintCallable, Category = UIControl)
 	void AddAndShowDataBindingButton();
@@ -62,9 +67,11 @@ public:
 	UFUNCTION(BlueprintCallable, Category = UIControl)
 	void HideStyleButton();
 
+	//[c9-11]
 	//* Click事件回调 */
 	FReply	ButtonClicked();
 
+	//[c09-12]
 	//* 数据绑定回调 */
 	FText	GetButtonLabel() const;
 
@@ -76,7 +83,7 @@ protected:
 	//* 可点击按钮及内部的文字引用 */
 	TSharedPtr<SVerticalBox>	ClickableWidget;
 	TSharedPtr<STextBlock>		ButtonLabel;
-	
+	//[c9-11]
 	//* 显示玩家位置按钮 */
 	TSharedPtr<SVerticalBox>	PositionWidget;
 

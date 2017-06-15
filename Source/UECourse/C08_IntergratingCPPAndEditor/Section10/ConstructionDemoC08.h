@@ -16,7 +16,7 @@ class UECOURSE_API AConstructionDemoC08 : public AStaticMeshActor
 	AConstructionDemoC08();
 
 	//~Begin AActor Interface
-
+	//[c8-33]
 	virtual void OnConstruction(const FTransform& Transform) override;
 
 	virtual void PostInitializeComponents() override;

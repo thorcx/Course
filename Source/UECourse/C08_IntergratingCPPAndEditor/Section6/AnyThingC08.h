@@ -9,7 +9,7 @@
 /**
  * 
  */
-
+//[c8-25]
 UENUM(BlueprintType)
 enum AnyThingShapeType
 {
@@ -18,7 +18,7 @@ enum AnyThingShapeType
 	Shape_Cake
 };
 
-
+//[c8-24]
 UCLASS()
 class UECOURSE_API AAnyThingC08 : public AStaticMeshActor
 {
@@ -32,13 +32,14 @@ class UECOURSE_API AAnyThingC08 : public AStaticMeshActor
 	
 	//~End AActor Interface
 
-	
+	//[c8-30]
 #if WITH_EDITOR
 	virtual void PostEditChangeProperty(FPropertyChangedEvent& PropertyChangedEvent) override;
 
 #endif
 	
 protected:
+	//[c8-28]
 	//* 根据枚举值刷新根节点的Mesh */
 	virtual void RefreshShape();
 	
@@ -50,10 +51,12 @@ public:
 	UPROPERTY(EditAnywhere, Category=EditorControll)
 	bool bUseInEditorRefresh;
 
+	//[c8-26]
 	UPROPERTY(EditAnywhere,BlueprintReadWrite,Category=ShapeType)
 	TEnumAsByte<AnyThingShapeType>  ShapeType;
 
 private:
+	//[c8-28]
 	UPROPERTY(Transient)
 	TArray<class UStaticMesh*>	MeshArray;
 };

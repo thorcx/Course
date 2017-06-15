@@ -26,3 +26,9 @@ void AEnemyBase_C08::Tick(float DeltaTime)
 
 }
 
+void AEnemyBase_C08::DoSomeTestAnimal(FVector pos)
+{
+	GEngine->AddOnScreenDebugMessage(-1, 5, FColor::Red, TEXT("test"));
+	SetActorLocation(pos);
+}
+

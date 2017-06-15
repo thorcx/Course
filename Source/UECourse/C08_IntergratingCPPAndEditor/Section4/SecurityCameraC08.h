@@ -9,6 +9,7 @@
  * 
  */
 //[c6-1]
+//[c8-15]
 UCLASS()
 class UECOURSE_API ASecurityCameraC08 : public AStaticMeshActor
 {
@@ -20,9 +21,12 @@ class UECOURSE_API ASecurityCameraC08 : public AStaticMeshActor
 public:
 
 	ASecurityCameraC08();
-
+	
+	//[c8-16]
+	//* …‰œﬂºÏ≤‚ */
 	virtual void Tick(float DeltaSeconds) override;
 
+	//[c8-17]
 	UFUNCTION(BlueprintImplementableEvent, Category=SecurityCamera)
 	void OnPlayerSpotted(APawn* Player);
 

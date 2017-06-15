@@ -8,6 +8,7 @@
 /**
  * 
  */
+//[c8-57]
 UCLASS(BlueprintType)
 class UECOURSEEDITOR_API UCustomAsset : public UObject
 {

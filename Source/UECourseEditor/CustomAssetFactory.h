@@ -10,7 +10,8 @@
 
 class FCustomAssetAction : public FAssetTypeActions_Base
 {
-
+	//[c8-58]
+	//* 决定了是否能执行CustomAction,如果返回true，下面的GetActions被执行 */
 	virtual bool HasActions(const TArray<UObject *>& InObjects) const override;
 
 	//* 此回调决定了当呼出右键菜单时，执行的动作，注意在这里传入的FMenuBuiler引用 */
@@ -30,7 +31,7 @@ class FCustomAssetAction : public FAssetTypeActions_Base
 };
 
 
-
+//[c8-58]
 UCLASS()
 class UCustomAssetFactory : public UFactory
 {

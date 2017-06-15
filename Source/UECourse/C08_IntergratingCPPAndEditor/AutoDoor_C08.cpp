@@ -51,7 +51,7 @@ AAutoDoor_C08::AAutoDoor_C08()
 
 
 
-
+//[c8-13]
 //这里绑定曲线设置，在Editor内注意要指定相应的Curve，不然门不会动
 void AAutoDoor_C08::BeginPlay()
 {
@@ -74,7 +74,7 @@ void AAutoDoor_C08::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 
 }
-
+//[c8-14]
 void AAutoDoor_C08::TML_DoorMovementReturn(float value)
 {
 	RightDoorMesh->SetRelativeLocation(FVector(0, value, 0));
