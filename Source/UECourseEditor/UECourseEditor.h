@@ -53,12 +53,14 @@ public:
 	//蓝图自定义Pin工厂
 	TSharedPtr<struct FCoolCustomAssetPinFactory> PinFactory;
 
+	//[c8-79]
 	//注册函数
 	void RegisterCustomPinFactory();
 
 	//取消注册函数
 	void UnRegisterCustomPinFactory();
 
+	//[c8-86]
 	//注册CustomDetail
 	void RegisterCustomDetail();
 

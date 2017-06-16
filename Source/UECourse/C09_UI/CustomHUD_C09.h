@@ -8,6 +8,7 @@
 /**
  * 
  */
+//[c09-01]
 UCLASS()
 class UECOURSE_API ACustomHUD_C09 : public AHUD
 {
@@ -16,7 +17,7 @@ class UECOURSE_API ACustomHUD_C09 : public AHUD
 	
 public:
 	//~ Begin AHUD 
-
+	//[C09-02]
 	virtual void DrawHUD() override;
 	
 	//~ End AHUD 

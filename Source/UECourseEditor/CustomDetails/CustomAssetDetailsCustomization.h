@@ -1,23 +1,23 @@
-#pragma once
+ï»¿#pragma once
 #include "../CustomAsset.h"
 #include "DetailLayoutBuilder.h"
 #include "IDetailCustomization.h"
 #include "IPropertyTypeCustomization.h"
 
 /*
-*´ËÀàÊµÏÖ¶¨ÖÆµÄÎïÌåÊôĞÔÏ¸½ÚÃæ°åÏÔÊ¾
+*æ­¤ç±»å®ç°å®šåˆ¶çš„ç‰©ä½“å±æ€§ç»†èŠ‚é¢æ¿æ˜¾ç¤º
 *
 */
-//[c8-79]
+//[c8-80]
 class FCoolCustomAssetDetailsCustomization : public IDetailCustomization
 {
 public:
-	//[c8-81]
+	//[c8-82]
 	virtual void CustomizeDetails(IDetailLayoutBuilder& DetailBuilder) override;
 
 	void ColorPicked(FLinearColor SelectedColor);
 
-	//[c8-80]
+	//[c8-81]
 	static TSharedRef<IDetailCustomization> MakeInstance()
 	{
 		return MakeShareable(new FCoolCustomAssetDetailsCustomization);
